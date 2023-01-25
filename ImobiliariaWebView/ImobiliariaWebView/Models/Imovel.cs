@@ -17,14 +17,14 @@ public class Imovel
     [Column("id_locador")]
     public int IdLocador { get; set; }
 
-    /*[ForeignKey("id_cliente")]
-    public Cliente Cliente { get; set; }*/
+    [ForeignKey("id_cliente")]
+    public Cliente Cliente { get; set; }
 
     [Column("id_tipo_imovel")]
     public int IdTipoImovel { get; set; }
 
-   /* [ForeignKey("id_tipo_imovel")]
-    public TipoImovel TipoImovel { get; set;}*/
+    [ForeignKey("id_tipo_imovel")]
+    public TipoImovel TipoImovel { get; set; }
 
     [Column("titulo_anuncio")]
     public string TituloAnuncio { get; set; }

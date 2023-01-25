@@ -6,7 +6,7 @@ using System.Reflection.Metadata;
 
 namespace ImobiliariaWebView.Data.Dtos;
 
-public class CreateImagemDto
+public class ImagemDto
 {
     [Required]
     [Column("id_imovel")]

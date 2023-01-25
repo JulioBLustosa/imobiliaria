@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ImobiliariaWebView.Data.Dtos;
 
-public class CreateImovelDto
+public class ImovelDto
 {
     [Required(ErrorMessage = "O identificador do imóvel é obrigatório")]
     [Column("id_locador")]

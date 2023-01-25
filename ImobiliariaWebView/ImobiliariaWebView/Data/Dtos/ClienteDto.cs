@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ImobiliariaWebView.Data.Dtos;
 
-public class UpdateClienteDto
+public class ClienteDto
 {
     [Required(ErrorMessage = "O nome do cliente é obrigatório", AllowEmptyStrings = false)]
     [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",

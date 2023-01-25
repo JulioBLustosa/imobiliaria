@@ -24,7 +24,7 @@ USE `imobiliaria` ;
 -- Table `imobiliaria`.`cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `imobiliaria`.`cliente` (
-  `id_cliente` INT NOT NULL,
+  `id_cliente` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(70) NOT NULL,
   `cpf_cnpj` VARCHAR(14) NOT NULL,
   `cep` CHAR(8) NOT NULL,
@@ -51,7 +51,7 @@ ENGINE = InnoDB;
 -- Table `imobiliaria`.`tipo_imovel`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `imobiliaria`.`tipo_imovel` (
-  `id_tipo_imovel` INT NOT NULL,
+  `id_tipo_imovel` INT NOT NULL AUTO_INCREMENT,
   `tipo_imovel` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`id_tipo_imovel`),
   INDEX `idx_tipo_imovel` (`tipo_imovel` ASC) VISIBLE)
@@ -62,7 +62,7 @@ ENGINE = InnoDB;
 -- Table `imobiliaria`.`imovel`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `imobiliaria`.`imovel` (
-  `id_imovel` INT NOT NULL,
+  `id_imovel` INT NOT NULL AUTO_INCREMENT,
   `id_locador` INT NOT NULL COMMENT 'Identificador (tabela cliente) do proprietário do imóvel',
   `id_tipo_imovel` INT NOT NULL COMMENT 'Identifica se o imóvel é um apartamento, casa, casa geminada...',
   `titulo_anuncio` VARCHAR(60) NOT NULL COMMENT 'É o título do anúncio do imóvel para a apresentação em midias de anúncio de imóveis para alugar.',
@@ -105,7 +105,7 @@ ENGINE = InnoDB;
 -- Table `imobiliaria`.`imagem.imovel`
 -- -----------------------------------------------------
 CREATE TABLE `imagem_imovel` (
-  `id_imagem` int NOT NULL,
+  `id_imagem` int NOT NULL AUTO_INCREMENT,
   `id_imovel` int NOT NULL,
   `ordem_imagem` int DEFAULT NULL,
   `imagem` varchar(255) COLLATE utf8mb3_bin NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE `imagem_imovel` (
 -- Table `imobiliaria`.`locacao_imovel`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `imobiliaria`.`locacao_imovel` (
-  `id_locacao` INT NOT NULL,
+  `id_locacao` INT NOT NULL AUTO_INCREMENT,
   `id_imovel` INT NOT NULL COMMENT 'Identificador do imóvel para aluguel',
   `id_locatario` INT NOT NULL COMMENT 'Identificador do locatário (quem está alugando) do imóvel',
   `data_locacao` DATETIME NOT NULL COMMENT 'Data proposição do contrato de aluguel',

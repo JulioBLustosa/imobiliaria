@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/4jt++xoaCosFs5177/H8R65EnbaRzzclvNjmyhOxHME03kwFwYWwXap44eOMvnDbSXrEC7Rd52p2F/Xj/h+Uw==",
+  "dgSpecHash": "sTiND7xT+IikdeZ2VWQwb7G1Vg2qGVxJ/j+2ZGeG5EOp4w/PEW/vNFnnNuIrUGBwLswVyWrGxbkkIMgHq9gTYw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\julio\\source\\repos\\ImobiliariaWebView\\ImobiliariaWebView\\ImobiliariaWebView.csproj",
+  "projectFilePath": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\ImobiliariaWebView.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\julio\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\julio\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

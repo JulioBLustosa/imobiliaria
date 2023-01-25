@@ -21,7 +21,7 @@ public class ClienteController : ControllerBase
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
-    public IActionResult AdicionaCliente([FromBody] CreateClienteDto clienteDto)
+    public IActionResult AdicionaCliente([FromBody] ClienteDto clienteDto)
     {
         Cliente cliente = _mapper.Map<Cliente>(clienteDto);
         _context.Cliente.Add(cliente);
