@@ -13,18 +13,18 @@ public class Cliente
     [Column("id_cliente")]
     public int IdCliente { get; set; }
 
-    [Required(ErrorMessage = "O nome do cliente é obrigatório", AllowEmptyStrings = false)]
-    [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",
-        ErrorMessage = "Números e caracteres especiais não são permitidos no nome.")]
+    [Required(ErrorMessage = "O nome do cliente é obrigatório")]
+    /*[RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",
+        ErrorMessage = "Números e caracteres especiais não são permitidos no nome.")]*/
     [StringLength(70, ErrorMessage = "O tamanho do nome não pode ser superior a 70 caracteres")]
     [Column("nome")]
     public string Nome { get; set; }
 
-    [Required(ErrorMessage = "O número do CPF/CNPJ é obrigatorio.", AllowEmptyStrings = false)]
+    [Required(ErrorMessage = "O número do CPF/CNPJ é obrigatorio.")]
     [Column("cpf_cnpj")]
     public string Cpf_Cnpj { get; set; }
 
-    [Required(ErrorMessage = "O CEP é obrigatório.", AllowEmptyStrings = false)]
+    [Required(ErrorMessage = "O CEP é obrigatório.")]
     [Column("cep")]
     public string Cep { get; set; }
 
@@ -49,11 +49,10 @@ public class Cliente
     [Column("telefone_residencial")]
     public string TelefoneResidencial { get; set; }
 
-    [Required(ErrorMessage = "Número de telefone celular é obrigatório.", AllowEmptyStrings = false)]
     [Column("telefone_celular")]
     public string TelefoneCelular { get; set; }
 
-    [Required(ErrorMessage = "Informe o seu email", AllowEmptyStrings = false)]
+    [Required(ErrorMessage = "Informe o seu email")]
     [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Informe um email válido...")]
     [Column("email")]
     public string Email { get; set; }
