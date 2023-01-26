@@ -3,98 +3,59 @@
     ViewData["Title"] = "Todos os clientes";
     Layout = "~/Views/Shared/_cliLayout.cshtml";
 }
-@*<a asp-action="CadastraCliente" class="btn btn-sm btn-primary">Incluir Cliente</a>
-<a asp-action="RecuperaCliente" class="btn btn-sm btn-secondary">Obter Cliente</a>
 
-<table class="table table-sm table-striped table-bordered m-2">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Nº documento</th>
-            <th>Cidade / UF</th>
-            <th>Atualiza</th>
-            <th>Deleta</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var c in Model)
-        {
-            <tr>
-                <td>@c.IdCliente</td>
-                <td>@c.Nome</td>
-                <td>@c.Cpf_Cnpj</td>
-                <td>@c.Cidade / @c.Uf</td>
-                <td>
-                    <a asp-action="UpdateCliente" asp-route-id="@c.IdCliente"><img src="/icon/edit.png" /></a>
-                </td>
-                <td>
-                    <form asp-action="DeleteCliente" method="post">
-                        <input type="hidden" value="@c.IdCliente" name="ClienteId" />
-                        <input type="image" src="/icon/close.png" />
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>*@
+<div class="mx-auto" id="main">
+    <h2>Lista de cliente</h2>
 
-    <div class="mx-auto" id="main">
-        <h2>Lista de cliente</h2>
-
-        <div class="container">
-            <div class="row">
-                <div class="input-group inp-pesquisa">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
-                    <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um cliente" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group btn-novo-cadastro">
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editaCliente"><i class="bi bi-plus" onclick="limpaCampos()"></i> Novo cliente</button>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="input-group inp-pesquisa">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
+                <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um cliente" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group btn-novo-cadastro">
+                <button type="button" class="btn btn-success btn-sm">
+                    <a asp-action="AdicionaCliente">Novo cliente</a>
+                </button>
             </div>
         </div>
-
-        <a asp-action="AdicionaCliente" class="btn btn-sm btn-primary">Novo Cliente</a>
-
-        <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
-            <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
-                <thead class="bg-light">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Nº documento</th>
-                        <th>Contato</th>
-                        <th>Ordem serviço</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="table-lista-cliente">
-                    @foreach (var cliente in Model)
-                    {
-                        <tr>
-                            <td scope="row">
-                                <p class="fw-bold mb-1">@cliente.IdCliente</p> @*Item 0*@
-                            </td>
-                            <td>
-                                <p class="fw-bold mb-1">@cliente.Nome</p> @*Item 1*@
-                            </td>
-                            <td>
-                                <p class="fw-normal mb-1">@cliente.Cpf_Cnpj</p> @*Item 2*@
-                            </td>
-                            <td>
-                                <p class="fw-normal mb-1">@cliente.Email</p> @*Item 3*@
-                            </td>
-                            <td>@cliente.Telefone_Celular</td> @*Item 16*@
-                            <td>
-                                <button type="button" asp-action="EditaCliente"
-                                    class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-placement="right"
-                                    title="Edit" value="@System.Text.Json.JsonSerializer.Serialize(cliente)" onclick="passarValores()">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
     </div>
+
+    <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
+        <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
+            <thead class="bg-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Nº documento</th>
+                    <th>Contato</th>
+                    <th>Telefones</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="table-lista-cliente">
+                @foreach (var cliente in Model)
+                {
+                    <tr>
+                        <td scope="row">
+                            <p class="fw-bold mb-1">@cliente.IdCliente</p> @*Item 0*@
+                        </td>
+                        <td>
+                            <p class="fw-bold mb-1">@cliente.Nome</p> @*Item 1*@
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">@cliente.Cpf_Cnpj</p> @*Item 2*@
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">@cliente.Email</p> @*Item 3*@
+                        </td>
+                        <td>@cliente.Telefone_Celular</td> @*Item 16*@
+                        <td>
+                            <a class="btn btn-link btn-rounded btn-sm fw-bold bi bi-pencil-fill" asp-action="RecuperaCliente"></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

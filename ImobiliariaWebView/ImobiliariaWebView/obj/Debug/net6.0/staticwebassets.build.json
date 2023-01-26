@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3oZo8d7veOa1fhREqF1CLRfM45sHFVp0j23hDgdjsHg=",
+  "Hash": "oExiD3PtyDF3RJ/koKqs6VfFeEuYZh4qHV6+IBJ0teg=",
   "Source": "ImobiliariaWebView",
   "BasePath": "_content/ImobiliariaWebView",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\js\\viacep.js",
+      "SourceId": "ImobiliariaWebView",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\",
+      "BasePath": "_content/ImobiliariaWebView",
+      "RelativePath": "js/viacep.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\viacep.js"
     },
     {
       "Identity": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

@@ -43,6 +43,7 @@ body {
 
 a {
     text-decoration: none;
+    color: white;
 }
 
 .header {
@@ -122,11 +123,11 @@ a {
         display: inline;
     }
 
-        .TabControl .abas li {
-            float: left;
-            list-style: none;
-            cursor: pointer;
-        }
+    .TabControl .abas li {
+        float: left;
+        list-style: none;
+        cursor: pointer;
+    }
 
 .aba {
     width: 100px;
@@ -148,9 +149,9 @@ a {
     background: var(--first-color);
 }
 
-    .ativa span, .selected span {
-        color: #fff;
-    }
+.ativa span, .selected span {
+    color: #fff;
+}
 
 .TabControl .conteudo {
     width: 100%;

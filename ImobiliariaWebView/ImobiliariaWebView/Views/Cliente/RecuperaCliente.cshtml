@@ -1,40 +1,175 @@
 ﻿@model Cliente
 @{
-    ViewData["Title"] = "RecuperaCliente";
+    ViewData["Title"] = "Edita cliente";
     Layout = "~/Views/Shared/_clienteLayout.cshtml";
 }
 
-<h2>Obter cliente pelo Id <a asp-action="Index" class="btn btn-sm btn-success">Retornar</a></h2>
+<form asp-controller="Cliente">
+    <div class="modal-body">
+        <span id="dataCadastro" style="float: right;"></span>
+        <input type="text" id="inputId" asp-for="IdCliente"> @*disabled hidden="true"*@   @*Item 0 da tabale*@
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="cpf_cnpj">Informe o CPF</label>   @*Item 2 da tabale*@
+                <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" maxlength="14" asp-for="Cpf_Cnpj">
+            </div>
+        </div>
+        <div class="row linhas">
+            <div class="form-group col-md-7">
+                <label for="nomeCliente">Nome do cliente</label>  @*Item 1 da tabale*@
+                <input type="text" class="form-control" id="nomeCliente" asp-for="Nome">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="idApelido">Apelido</label>  @*Item 5 da tabale*@
+                @*<input type="text" class="form-control" id="idApelido" asp-for="">*@
+            </div>
+            <div class="form-group col-md-2">
+                <label for="idDtNascimento">Data nascimento</label> @*Item 6 da tabale*@
+                @*<input type="text" class="form-control" id="idDtNascimento" asp-for="Data_nascimento">*@
+            </div>
+        </div>
 
-<form method="post">
-    <div class="form-group">
-        <label for="id">Id:</label>
-        <input class="form-control" name="id" />
-    </div>
-    <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm btn-primary">Obter cliente</button>
+        <div class="TabControl mt-3">
+            <div id="header">
+                <ul class="abas">
+                    <li onclick="AtivaAba('abaRes')">
+                        <div class="aba" >
+                            <span>Residencial</span>
+                        </div>
+                    </li>
+                    <li onclick="AtivaAba('abaVeiculo')">
+                        <div class="aba">
+                            <span>Veículos</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="content">
+                <div id="abaRes" class="conteudo" style="display: block"> @*<!-- INÍCIO ABA RESIDENCIAL -->*@
+                    <div id="row-pg-1" class="row">
+                        <div id="app" class="form-group col-md-2">
+                            <label for="cep">CEP</label>  @*Item 8 da tabale*@
+                            <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8"  asp-for="Cep">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="endereco">Endereço</label> @*Item 9 da tabale*@
+                            <input type="text" class="form-control" id="endereco" asp-for="Logradouro">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="numero">Número</label> @*Item 10 da tabale*@
+                            <input type="text" class="form-control" id="numero" asp-for="Numero">
+                        </div>
+                    </div>
+                                    
+                    <div id="row-pg-2" class="row">
+                        <div class="form-group col-md-5">
+                            <label for="bairro">Bairro</label> @*Item 12 da tabale*@
+                            <input type="text" class="form-control" id="bairro" asp-for="Bairro">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="cidade">Cidade</label> @*Item 13 da tabale*@
+                            <input type="text" class="form-control" id="cidade" asp-for="Cidade">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="estado">Estado</label> @*Item 14 da tabale*@
+                            <select id="estado" class="form-select" asp-for="Uf">
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AM">AM</option>
+                                <option value="AP">AP</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MG">MG</option>
+                                <option value="MS">MS</option>
+                                <option value="MT">MT</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="PR">PR</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="RS">RS</option>
+                                <option value="SC">SC</option>
+                                <option value="SE">SE</option>
+                                <option value="SP">SP</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="complemento">Complemento</label> @*Item 11 da tabale*@
+                            <input type="text" class="form-control" id="complemento" asp-for="Complemento">
+                        </div>
+                    </div>
+                    <div id="row-pg-3" class="row"> @*<!-- INICIO DIV CIDADE E ESTADO -->*@
+                        <div class="form-group col-md-3">
+                            <label for="telefone">Telefone</label> @*Item 15 da tabale*@
+                            <input type="tel" class="form-control" id="telefone" asp-for="Telefone_Residencial">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="celular">Celuar</label> @*Item 16 da tabale*@
+                            <input type="tel" class="form-control" id="celular" asp-for="Telefone_Celular">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">Email</label>  @*Item 3 da tabale*@
+                            <input type="email" class="form-control email" id="email" asp-for="Email">
+                        </div>
+                    </div>
+                </div>
+                <div id="abaListaImoveis" class="conteudo" style="display: none">
+                    
+                <table class="table table-sm table-striped table-bordered m-2">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Apelido</th>
+                            <th>Endereço</th>
+                            <th>Atualiza</th>
+                            <th>Deleta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a asp-action="UpdateCliente" asp-route-id=""><img src="/icon/edit.png" /></a>
+                            </td>
+                            <td>
+                                <form asp-action="DeleteCliente" method="post">
+                                    <input type="hidden" value="" name="ClienteId" />
+                                    <input type="image" src="/icon/close.png" />
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="form-group">
+            <small>(*) Campos obrigatórios</small>
+            </div>
+        </div>
+                
+        <div class="form-group row pb-3 float-end">
+            <div class="col-sm-17">
+                <button type="submit" class="btn btn-primary btn-sm btn-atualizar" asp-action="AdicionaCliente">Salvar</button>
+                <button type="button" class="btn btn-secondary btn-sm btn-fechar" aria-label="Close">
+                    <a asp-action="Index">Fechar</a>
+                </button>
+            </div>
+        </div>
     </div>
 </form>
-
-@if (Model != null)
-{
-    <h2>Cliente</h2>
-    <table class="table table-sm table-striped table-bordered m-2">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Nº documento</th>
-                <th>Cidade / UF</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.IdCliente</td>
-                <td>@Model.Nome</td>
-                <td>@Model.Cpf_Cnpj</td>
-                <td>@Model.Cidade / @Model.Uf</td>
-            </tr>
-        </tbody>
-    </table>
-}

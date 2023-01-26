@@ -58,7 +58,7 @@ public class ClienteController : ControllerBase
     [HttpPatch("{id}")]
     public IActionResult AtualizaClienteParcial(int id, JsonPatchDocument<ClienteDto> patch)
     {
-        var cliente = _context.Cliente.FirstOrDefault(cliente => cliente.Id == id);
+        var cliente = _context.Cliente.FirstOrDefault(cliente => cliente.IdCliente == id);
         if (cliente == null) return NotFound();
 
         var clienteParaAtualizar = _mapper.Map<ClienteDto>(cliente);
@@ -77,7 +77,7 @@ public class ClienteController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeletaFilme(int id)
     {
-        var cliente = _context.Cliente.FirstOrDefault(cliente => cliente.Id == id);
+        var cliente = _context.Cliente.FirstOrDefault(cliente => cliente.IdCliente == id);
         if (cliente == null) return NotFound();
         _context.Remove(cliente);
         _context.SaveChanges();

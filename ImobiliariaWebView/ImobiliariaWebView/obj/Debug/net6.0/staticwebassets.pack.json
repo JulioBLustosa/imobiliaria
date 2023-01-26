@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\js\\viacep.js",
+      "PackagePath": "staticwebassets\\js\\viacep.js"
+    },
+    {
       "Id": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
