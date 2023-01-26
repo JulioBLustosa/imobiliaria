@@ -1,46 +1,25 @@
-﻿using AutoMapper;
-using ImobiliariaWebView.Data;
-using ImobiliariaWebView.Data.Dtos;
-using ImobiliariaWebView.Models;
+﻿using ImobiliariaWebView.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace ImobiliariaWebView.Controllers;
 
-[ApiController]
-[Route("[Controller]")]
-public class ClienteController : ControllerBase
+public class ClienteController : Controller
 {
-    private ImobiliariaContext _context;
-    private IMapper _mapper;
+    private readonly string apiUrl = " https://localhost:7281/cliente";
 
-    public ClienteController(ImobiliariaContext context, IMapper mapper)
+    public async Task<IActionResult> Index()
     {
-        _context=context;
-        _mapper=mapper;
-    }
+        List<Cliente> listaClintes = new List<Cliente>();
 
-    [HttpPost]
-    [ProducesResponseType(StatusCodes.Status201Created)]
-    public IActionResult AdicionaCliente([FromBody] ClienteDto clienteDto)
-    {
-        Cliente cliente = _mapper.Map<Cliente>(clienteDto);
-        _context.Cliente.Add(cliente);
-        _context.SaveChanges();
-        return CreatedAtAction(nameof(RecuperaClientePorId), new { id = cliente.IdCliente }, cliente);
-    }
-
-    [HttpGet]
-    public IEnumerable<ReadClienteDto> RecuperaClientes([FromQuery] int skip = 0, [FromQuery] int take = 20)
-    {
-        return _mapper.Map<List<ReadClienteDto>>(_context.Cliente.Skip(skip).Take(take));
-    }
-
-    [HttpGet("{id}")]
-    public IActionResult RecuperaClientePorId(int id)
-    {
-        var cliente = _context.Cliente.FirstOrDefault(cliente => cliente.IdCliente == id);
-        if (cliente == null) return NotFound();
-        var clienteDto = _mapper.Map<ReadClienteDto>(cliente);
-        return Ok(clienteDto);
+        using (var httpClient = new HttpClient())
+        {
+            using (var response = await httpClient.GetAsync(apiUrl))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                listaClintes = JsonConvert.DeserializeObject<List<Cliente>>(apiResponse);
+            }
+        }
+        return View(listaClintes);
     }
 }

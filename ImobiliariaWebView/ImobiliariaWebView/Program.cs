@@ -1,4 +1,3 @@
-using ImobiliariaWebView.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -6,11 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-var connectionString = builder.Configuration.GetConnectionString("ImobiliariaConnection");
-
-builder.Services.AddDbContext<ImobiliariaContext>(opts =>
-    opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

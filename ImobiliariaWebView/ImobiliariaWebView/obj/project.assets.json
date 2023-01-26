@@ -2290,6 +2290,7 @@
       "Microsoft.EntityFrameworkCore >= 6.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.2",
+      "Newtonsoft.Json >= 13.0.1",
       "Pomelo.EntityFrameworkCore.MySql >= 6.0.0"
     ]
   },
@@ -2364,6 +2365,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[6.0.2, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.1, )"
           },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
