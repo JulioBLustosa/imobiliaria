@@ -1,50 +1,11 @@
-﻿@*@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>*@
+</div>
 
 
-@model IEnumerable<Cliente>
-@{
-    ViewData["Title"] = "Todos os clientes";
-    Layout = "~/Views/Shared/_reservaLayout.cshtml";
-}
-<a asp-action="AddCliente" class="btn btn-sm btn-primary">Incluir Cliente</a>
-<a asp-action="GetCliente" class="btn btn-sm btn-secondary">Obter Cliente</a>
 
-<table class="table table-sm table-striped table-bordered m-2">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Número documento</th>
-            <th>Cidade / UF</th>
-            <th>Atualiza</th>
-            <th>Deleta</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var r in Model)
-        {
-            <tr>
-                <td>@r.IdCliente</td>
-                <td>@r.Nome</td>
-                <td>@r.Cpf_Cnpj</td>
-                <td>@r.Cidade / @r.Uf</td>
-                <td>
-                    <a asp-action="UpdateCliente" asp-route-id="@r.IdCliente"><img src="/icon/edit.png" /></a>
-                </td>
-                <td>
-                    <form asp-action="DeleteCliente" method="post">
-                        <input type="hidden" value="@r.IdCliente" name="ClienteId" />
-                        <input type="image" src="/icon/close.png" />
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>

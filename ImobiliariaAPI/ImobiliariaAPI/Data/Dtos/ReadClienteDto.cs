@@ -5,6 +5,9 @@ namespace ImobiliariaWebView.Data.Dtos
 {
     public class ReadClienteDto
     {
+        [Column("id_cliente")]
+        public int IdCliente { get; set; }
+
         [Column("nome")]
         public string Nome { get; set; }
 

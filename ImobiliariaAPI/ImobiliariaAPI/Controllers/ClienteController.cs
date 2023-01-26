@@ -55,9 +55,32 @@ public class ClienteController : ControllerBase
         return NoContent();
     }
 
-    /*[HttpPatch("{id}")]
+    [HttpPatch("{id}")]
     public IActionResult AtualizaClienteParcial(int id, JsonPatchDocument<ClienteDto> patch)
     {
+        var cliente = _context.Cliente.FirstOrDefault(cliente => cliente.Id == id);
+        if (cliente == null) return NotFound();
 
-    }*/
+        var clienteParaAtualizar = _mapper.Map<ClienteDto>(cliente);
+        patch.ApplyTo(clienteParaAtualizar, ModelState);
+
+        if (!TryValidateModel(clienteParaAtualizar))
+        {
+            return NotFound();
+        }
+
+        _mapper.Map(clienteParaAtualizar, cliente);
+        _context.SaveChanges();
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeletaFilme(int id)
+    {
+        var cliente = _context.Cliente.FirstOrDefault(cliente => cliente.Id == id);
+        if (cliente == null) return NotFound();
+        _context.Remove(cliente);
+        _context.SaveChanges();
+        return NoContent();
+    }
 }

@@ -5,6 +5,10 @@ namespace ImobiliariaWebView.Data.Dtos;
 
 public class ClienteDto
 {
+    [Key]
+    [Column("id_cliente")]
+    public int IdCliente { get; set; }
+
     [Required(ErrorMessage = "O nome do cliente é obrigatório")]
     /*[RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",
         ErrorMessage = "Números e caracteres especiais não são permitidos no nome.")]*/

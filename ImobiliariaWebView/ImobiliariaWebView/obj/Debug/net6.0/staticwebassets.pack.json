@@ -5,12 +5,28 @@
       "PackagePath": "staticwebassets\\ImobiliariaWebView.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\css\\cliente.css",
+      "PackagePath": "staticwebassets\\css\\cliente.css"
+    },
+    {
+      "Id": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\css\\menu.css",
+      "PackagePath": "staticwebassets\\css\\menu.css"
+    },
+    {
       "Id": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\js\\cliente.js",
+      "PackagePath": "staticwebassets\\js\\cliente.js"
+    },
+    {
+      "Id": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\js\\menu.js",
+      "PackagePath": "staticwebassets\\js\\menu.js"
     },
     {
       "Id": "C:\\Users\\julio\\Documents\\GitHub\\imobiliaria\\ImobiliariaWebView\\ImobiliariaWebView\\wwwroot\\js\\site.js",

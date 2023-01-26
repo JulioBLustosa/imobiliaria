@@ -1,0 +1,45 @@
+﻿@model Cliente
+@{
+    ViewData["Title"] = "CadastraCliente";
+    Layout = "~/Views/Shared/_clienteLayout.cshtml";
+}
+<h2>Nova Reserva <a asp-action="Index" class="btn btn-sm btn-outline-success">Retorna</a></h2>
+
+<form asp-action="AdicionaCliente" method="post">
+    <div class="form-group">
+        <label for="Name">Nome:</label>
+        <input class="form-control" name="Nome" />
+    </div>
+    <div class="form-group">
+        <label for="InicioLocacao">Início da Locação:</label>
+        <input class="form-control" name="CPF / CNPJ" />
+    </div>
+    <div class="form-group">
+        <label for="FimLocacao">Fim da Locação:</label>
+        <input class="form-control" name="Cidade" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Nova Reserva</button>
+    </div>
+</form>
+
+@if (Model != null)
+{
+    <h2>Cliente</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Nº documento</th>
+            <th>Cidade / UF</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>@Model.IdCliente</td>
+                <td>@Model.Nome</td>
+                <td>@Model.Cpf_Cnpj</td>
+                <td>@Model.Cidade / @Model.Uf</td>
+            </tr>
+        </tbody>
+    </table>
+}

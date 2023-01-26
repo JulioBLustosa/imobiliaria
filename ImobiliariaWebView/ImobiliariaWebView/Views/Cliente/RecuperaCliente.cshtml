@@ -1,0 +1,40 @@
+﻿@model Cliente
+@{
+    ViewData["Title"] = "RecuperaCliente";
+    Layout = "~/Views/Shared/_clienteLayout.cshtml";
+}
+
+<h2>Obter cliente pelo Id <a asp-action="Index" class="btn btn-sm btn-success">Retornar</a></h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="id">Id:</label>
+        <input class="form-control" name="id" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Obter cliente</button>
+    </div>
+</form>
+
+@if (Model != null)
+{
+    <h2>Cliente</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Nº documento</th>
+                <th>Cidade / UF</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.IdCliente</td>
+                <td>@Model.Nome</td>
+                <td>@Model.Cpf_Cnpj</td>
+                <td>@Model.Cidade / @Model.Uf</td>
+            </tr>
+        </tbody>
+    </table>
+}
